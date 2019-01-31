@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="JCS-G8-93l">
-                                <rect key="frame" x="16" y="715" width="343" height="63"/>
+                                <rect key="frame" x="16" y="707" width="343" height="63"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u9t-JB-KHx">
                                         <rect key="frame" x="0.0" y="0.0" width="56.666666666666664" height="63"/>
@@ -82,14 +82,14 @@
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="1+1=2" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="CT0-fb-Raf">
-                                <rect key="frame" x="16" y="44" width="343" height="409"/>
+                                <rect key="frame" x="16" y="44" width="343" height="401"/>
                                 <color key="backgroundColor" red="0.24527746819999999" green="0.53481305040000005" blue="0.58749136739999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="aiF-me-Far">
-                                <rect key="frame" x="16" y="481" width="343" height="206"/>
+                                <rect key="frame" x="16" y="473" width="343" height="206"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GZQ-ZL-Chx">
                                         <rect key="frame" x="0.0" y="0.0" width="91.666666666666671" height="206"/>
@@ -247,7 +247,7 @@
                             <constraint firstItem="CT0-fb-Raf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2em-sw-wlz"/>
                             <constraint firstItem="JCS-G8-93l" firstAttribute="top" secondItem="aiF-me-Far" secondAttribute="bottom" constant="28" id="2kM-fl-bdt"/>
                             <constraint firstItem="aiF-me-Far" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7tO-HY-zJk"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JCS-G8-93l" secondAttribute="bottom" id="DD6-9B-sGD"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="JCS-G8-93l" secondAttribute="bottom" constant="8" symbolic="YES" id="DD6-9B-sGD"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JCS-G8-93l" secondAttribute="trailing" id="Ew4-4f-veI"/>
                             <constraint firstItem="aiF-me-Far" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="GQw-iY-UXK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aiF-me-Far" secondAttribute="trailing" id="MGH-hR-unD"/>
