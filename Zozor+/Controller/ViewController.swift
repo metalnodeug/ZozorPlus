@@ -9,125 +9,94 @@
 import UIKit
 
 class ViewController: UIViewController {
-    // MARK: - Properties
-    var stringNumbers: [String] = [String()]
-    var operators: [String] = ["+"]
-    var index = 0
-    var isExpressionCorrect: Bool {
-        if let stringNumber = stringNumbers.last {
-            if stringNumber.isEmpty {
-                if stringNumbers.count == 1 {
-                    let alertVC = UIAlertController(title: "Zéro!", message: "Démarrez un nouveau calcul !", preferredStyle: .alert)
-                    alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                    self.present(alertVC, animated: true, completion: nil)
-                } else {
-                    let alertVC = UIAlertController(title: "Zéro!", message: "Entrez une expression correcte !", preferredStyle: .alert)
-                    alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                    self.present(alertVC, animated: true, completion: nil)
-                }
-                return false
-            }
-        }
-        return true
-    }
-
-    var canAddOperator: Bool {
-        if let stringNumber = stringNumbers.last {
-            if stringNumber.isEmpty {
-                let alertVC = UIAlertController(title: "Zéro!", message: "Expression incorrecte !", preferredStyle: .alert)
-                alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
-                self.present(alertVC, animated: true, completion: nil)
-                return false
-            }
-        }
-        return true
-    }
-
-
+    let calculate = Calculate()
+    
     // MARK: - Outlets
-
+    
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
-
+    
     // MARK: - Action
-
+    
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         for (i, numberButton) in numberButtons.enumerated() {
             if sender == numberButton {
-                addNewNumber(i)
+                calculate.addNewNumber(i)
+                updateDisplay()
             }
         }
     }
-
+    
     @IBAction func plus() {
-        if canAddOperator {
-        	operators.append("+")
-        	stringNumbers.append("")
-            updateDisplay()
-        }
+        addOperator("+")
     }
-
+    
     @IBAction func minus() {
-        if canAddOperator {
-            operators.append("-")
-            stringNumbers.append("")
-            updateDisplay()
-        }
+        addOperator("-")
     }
-
+    
+    @IBAction func multiply() {
+        addOperator("x")
+    }
+    
+    @IBAction func divide() {
+        addOperator("/")
+    }
+    
     @IBAction func equal() {
-        calculateTotal()
-    }
-
-
-    // MARK: - Methods
-
-    func addNewNumber(_ newNumber: Int) {
-        if let stringNumber = stringNumbers.last {
-            var stringNumberMutable = stringNumber
-            stringNumberMutable += "\(newNumber)"
-            stringNumbers[stringNumbers.count-1] = stringNumberMutable
-        }
+        calculate.calculateTotal()
         updateDisplay()
     }
-
-    func calculateTotal() {
-        if !isExpressionCorrect {
-            return
-        }
-
-        var total = 0
-        for (i, stringNumber) in stringNumbers.enumerated() {
-            if let number = Int(stringNumber) {
-                if operators[i] == "+" {
-                    total += number
-                } else if operators[i] == "-" {
-                    total -= number
-                }
-            }
-        }
-
-        textView.text = textView.text + "=\(total)"
-
-        clear()
+    
+    @IBAction func clear(_ sender: UIButton) {
+        calculate.clear()
+        textView.text = "0"
     }
-
-    func updateDisplay() {
+    
+    @IBAction func dot(_ sender: UIButton) {
+        addDot(".")
+    }
+    
+    
+    /// Alert message
+    private func alertMessage(_ message: String) {
+        let alertVC = UIAlertController(title: "Zéro!", message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
+    }
+    
+    /// Add operator
+    private func addOperator(_ newOperator: String) {
+        do {
+            try calculate.addNewOperator(newOperator)
+            updateDisplay()
+        } catch ErrorMessage.cantAddOperator {
+            alertMessage("Expression Incorrecte !")
+        } catch {
+            print("Error")
+        }
+    }
+    
+    // Add a decimal dot
+    private func addDot(_ separator: String){
+        if textView.text.contains(".") {
+            alertMessage("You have already use the separator")
+        } else {
+            addOperator(separator)
+        }
+    }
+    
+    // Update display textView
+    private func updateDisplay() {
         var text = ""
-        for (i, stringNumber) in stringNumbers.enumerated() {
+        for (i, stringNumber) in calculate.stringNumbers.enumerated() {
             // Add operator
             if i > 0 {
-                text += operators[i]
+                text += calculate.operators[i]
             }
             // Add number
             text += stringNumber
         }
         textView.text = text
-    }
-
-    func clear() {
-        stringNumbers = [String()]
-        operators = ["+"]
-        index = 0
     }
 }
