@@ -71,8 +71,8 @@ class Calculate {
                 switch operators[i] {
                 case "+": total += number
                 case "-": total -= number
-                case "/": total = total / number
-                case "x": total = total * number
+                case "/": total /= number
+                case "x": total *= number
                 default: break
                 }
                 
