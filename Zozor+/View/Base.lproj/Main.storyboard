@@ -233,8 +233,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="dot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SlF-9X-Ds4"/>
-                                                    <action selector="tappedNumberButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OEt-e3-KKN"/>
+                                                    <action selector="dot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AkT-it-m93"/>
                                                 </connections>
                                             </button>
                                         </subviews>

@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         }
     }
     
+    //Operator Button return title value
     @IBAction func operatorButton(_ sender: UIButton) {
         addOperator(sender.title(for: .normal)!)
     }

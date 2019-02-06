@@ -37,6 +37,7 @@ class Calculate {
         return true
     }
     
+    //Adding new number if it's possible
     func addNewOperator(_ newOperator: String) throws {
         guard canAddOperator else {
             throw ErrorMessage.cantAddOperator
@@ -52,6 +53,7 @@ class Calculate {
         index = 0
     }
     
+    // Ading New Number to the expression
     func addNewNumber(_ newNumber: Int) {
         if let stringNumber = stringNumbers.last {
             var stringNumberMutable = stringNumber
@@ -60,6 +62,7 @@ class Calculate {
         }
     }
     
+    // Calcultate total and return result
     func calculateTotal() -> String{
         if !isExpressionCorrect {
             return "Expression incorrecte"
