@@ -27,20 +27,8 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func plus() {
-        addOperator("+")
-    }
-    
-    @IBAction func minus() {
-        addOperator("-")
-    }
-    
-    @IBAction func multiply() {
-        addOperator("x")
-    }
-    
-    @IBAction func divide() {
-        addOperator("/")
+    @IBAction func operatorButton(_ sender: UIButton) {
+        addOperator(sender.title(for: .normal)!)
     }
     
     @IBAction func equal() {
