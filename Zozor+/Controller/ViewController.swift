@@ -44,8 +44,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func equal() {
-        calculate.calculateTotal()
-        updateDisplay()
+        textView.text = calculate.calculateTotal()
     }
     
     @IBAction func clear(_ sender: UIButton) {
@@ -59,7 +58,7 @@ class ViewController: UIViewController {
     
     
     /// Alert message
-    private func alertMessage(_ message: String) {
+    public func alertMessage(_ message: String) {
         let alertVC = UIAlertController(title: "Zéro!", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)

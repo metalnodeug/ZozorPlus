@@ -60,9 +60,9 @@ class Calculate {
         }
     }
     
-    func calculateTotal() {
+    func calculateTotal() -> String{
         if !isExpressionCorrect {
-            return
+            return "Expression incorrecte"
         }
         
         var total = 0
@@ -79,9 +79,7 @@ class Calculate {
             }
         }
         
-        // textView.text = textView.text + "=\(total)"
-        
-        clear()
+        return String(total)
     }
     
     
