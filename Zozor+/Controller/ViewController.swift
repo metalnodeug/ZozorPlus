@@ -66,12 +66,12 @@ class ViewController: UIViewController {
         }
     }
     
-    // Add a decimal dot
-    private func addDecimal(_ separator: String){
-        if textView.text.contains(".") {
+    // Add a decimal if verification are ok !
+    private func addDecimal(_ sender: String){
+        if !calculate.canAddDecimal {
             alertMessage("You have already use the separator")
         } else {
-            addOperator(separator)
+            addOperator(sender)
         }
     }
     

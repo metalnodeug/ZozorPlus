@@ -27,10 +27,20 @@ class Calculate {
         return true
     }
     
-    //Check if expression are correct
+    //Check if can add operator
     var canAddOperator: Bool {
         if let stringNumber = stringNumbers.last {
             if stringNumber.isEmpty {
+                return false
+            }
+        }
+        return true
+    }
+    
+    //Check if can add decimal
+    var canAddDecimal: Bool {
+        if let expression = stringNumbers.last {
+            if expression.contains(".") {
                 return false
             }
         }
@@ -78,12 +88,8 @@ class Calculate {
                 case "x": total *= number
                 default: break
                 }
-                
             }
         }
-        
         return String(total)
     }
-    
-    
 }
