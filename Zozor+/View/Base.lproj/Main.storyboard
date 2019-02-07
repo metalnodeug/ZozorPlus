@@ -233,7 +233,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="dot:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AkT-it-m93"/>
+                                                    <action selector="decimal:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2El-8H-ty7"/>
                                                 </connections>
                                             </button>
                                         </subviews>

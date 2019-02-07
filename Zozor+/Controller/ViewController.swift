@@ -17,32 +17,33 @@ class ViewController: UIViewController {
     @IBOutlet var numberButtons: [UIButton]!
     
     // MARK: - Action
-    
+    // Number Button
     @IBAction func tappedNumberButton(_ sender: UIButton) {
-        for (i, numberButton) in numberButtons.enumerated() {
-            if sender == numberButton {
-                calculate.addNewNumber(i)
-                updateDisplay()
-            }
+        if let number = Int(sender.currentTitle!) {
+            calculate.addNewNumber(number)
+            updateDisplay()
         }
     }
     
     //Operator Button return title value
     @IBAction func operatorButton(_ sender: UIButton) {
-        addOperator(sender.title(for: .normal)!)
+        addOperator(sender.currentTitle!)
     }
     
+    //Equal Button
     @IBAction func equal() {
         textView.text = calculate.calculateTotal()
     }
     
+    //AC Button to clear view
     @IBAction func clear(_ sender: UIButton) {
         calculate.clear()
         textView.text = "0"
     }
     
-    @IBAction func dot(_ sender: UIButton) {
-        addDot(".")
+    //Decimal Button
+    @IBAction func decimal(_ sender: UIButton) {
+        addDecimal(sender.currentTitle!)
     }
     
     
@@ -66,7 +67,7 @@ class ViewController: UIViewController {
     }
     
     // Add a decimal dot
-    private func addDot(_ separator: String){
+    private func addDecimal(_ separator: String){
         if textView.text.contains(".") {
             alertMessage("You have already use the separator")
         } else {
