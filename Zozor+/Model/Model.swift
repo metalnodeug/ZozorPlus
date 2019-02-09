@@ -64,7 +64,7 @@ class Calculate {
     }
     
     // Ading New Number to the expression
-    func addNewNumber(_ newNumber: Int) {
+    func addNewNumber(_ newNumber: String) {
         if let stringNumber = stringNumbers.last {
             var stringNumberMutable = stringNumber
             stringNumberMutable += "\(newNumber)"

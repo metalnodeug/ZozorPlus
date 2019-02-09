@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     // MARK: - Action
     // Number Button
     @IBAction func tappedNumberButton(_ sender: UIButton) {
-        if let number = Int(sender.currentTitle!) {
+        if let number = sender.currentTitle {
             calculate.addNewNumber(number)
             updateDisplay()
             print(calculate.stringNumbers)
@@ -74,8 +74,7 @@ class ViewController: UIViewController {
             alertMessage("You have already use the separator")
         } else {
             textView.text += "."
-            calculate.stringNumbers.append("")
-            calculate.stringNumbers = [calculate.stringNumbers.joined(separator: ".")]
+            calculate.addNewNumber(".")
         }
     }
     
