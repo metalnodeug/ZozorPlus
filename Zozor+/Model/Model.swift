@@ -78,9 +78,9 @@ class Calculate {
             return "Expression incorrecte"
         }
         
-        var total = 0
+        var total: Double = 0
         for (i, stringNumber) in stringNumbers.enumerated() {
-            if let number = Int(stringNumber) {
+            if let number = Double(stringNumber) {
                 switch operators[i] {
                 case "+": total += number
                 case "-": total -= number
@@ -90,6 +90,12 @@ class Calculate {
                 }
             }
         }
+        // check if total is Integer for not display ".0"
+        if total.rounded(.up) == total.rounded(.down) {
+            print("C'est un entier")
+            return String(Int(total))
+        }
+        print("Ce n'est pas un entier")
         return String(total)
     }
 }

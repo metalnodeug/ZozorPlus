@@ -22,6 +22,7 @@ class ViewController: UIViewController {
         if let number = Int(sender.currentTitle!) {
             calculate.addNewNumber(number)
             updateDisplay()
+            print(calculate.stringNumbers)
         }
     }
     
@@ -72,7 +73,7 @@ class ViewController: UIViewController {
         if !calculate.canAddDecimal {
             alertMessage("You have already use the separator")
         } else {
-            addOperator(sender)
+            // Adding Decimal calculate.stringNumber.last
         }
     }
     
