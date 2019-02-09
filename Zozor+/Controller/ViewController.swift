@@ -73,7 +73,9 @@ class ViewController: UIViewController {
         if !calculate.canAddDecimal {
             alertMessage("You have already use the separator")
         } else {
-            // Adding Decimal calculate.stringNumber.last
+            textView.text += "."
+            calculate.stringNumbers.append("")
+            calculate.stringNumbers = [calculate.stringNumbers.joined(separator: ".")]
         }
     }
     

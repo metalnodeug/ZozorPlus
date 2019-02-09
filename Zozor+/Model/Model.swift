@@ -95,7 +95,7 @@ class Calculate {
             print("C'est un entier")
             return String(Int(total))
         }
-        print("Ce n'est pas un entier")
+        print("C'est un nombre décimal")
         return String(total)
     }
 }
