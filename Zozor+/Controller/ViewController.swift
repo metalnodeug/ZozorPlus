@@ -33,6 +33,7 @@ class ViewController: UIViewController {
     //Equal Button
     @IBAction func equal() {
         textView.text = calculate.calculateTotal()
+        calculate.clear()
     }
     
     //AC Button to clear view
