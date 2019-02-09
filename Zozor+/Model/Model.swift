@@ -92,10 +92,8 @@ class Calculate {
         }
         // check if total is Integer for not display ".0"
         if total.rounded(.up) == total.rounded(.down) {
-            print("C'est un entier")
             return String(Int(total))
         }
-        print("C'est un nombre décimal")
         return String(total)
     }
 }
