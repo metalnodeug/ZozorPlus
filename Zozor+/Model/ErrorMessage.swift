@@ -11,8 +11,5 @@ import Foundation
 // Enum Error Message possibles 
 enum ErrorMessage: Error {
     case expressionIncorrect
-    case expressionIncorrectStartNewOperator
     case cantAddOperator
-    case cantDivideByZero
-    case cantAddDecimalSeparator
 }

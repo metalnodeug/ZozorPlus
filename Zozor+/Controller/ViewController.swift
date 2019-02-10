@@ -10,52 +10,50 @@ import UIKit
 
 class ViewController: UIViewController {
     let calculate = Calculate()
-    
+
     // MARK: - Outlets
-    
+
     @IBOutlet weak var textView: UITextView!
     @IBOutlet var numberButtons: [UIButton]!
-    
+
     // MARK: - Action
     // Number Button
     @IBAction func tappedNumberButton(_ sender: UIButton) {
         if let number = sender.currentTitle {
             calculate.addNewNumber(number)
             updateDisplay()
-            print(calculate.stringNumbers)
         }
     }
-    
+
     //Operator Button return title value
     @IBAction func operatorButton(_ sender: UIButton) {
         addOperator(sender.currentTitle!)
     }
-    
+
     //Equal Button
     @IBAction func equal() {
         textView.text = calculate.calculateTotal()
         calculate.clear()
     }
-    
+
     //AC Button to clear view
     @IBAction func clear(_ sender: UIButton) {
         calculate.clear()
         textView.text = "0"
     }
-    
+
     //Decimal Button
     @IBAction func decimal(_ sender: UIButton) {
         addDecimal(sender.currentTitle!)
     }
-    
-    
+
     /// Alert message
     public func alertMessage(_ message: String) {
         let alertVC = UIAlertController(title: "Zéro!", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
     }
-    
+
     /// Add operator
     private func addOperator(_ newOperator: String) {
         do {
@@ -67,9 +65,9 @@ class ViewController: UIViewController {
             print("Error")
         }
     }
-    
+
     // Add a decimal if verification are ok !
-    private func addDecimal(_ sender: String){
+    private func addDecimal(_ sender: String) {
         if !calculate.canAddDecimal {
             alertMessage("You have already use the separator")
         } else {
@@ -77,7 +75,7 @@ class ViewController: UIViewController {
             calculate.addNewNumber(".")
         }
     }
-    
+
     // Update display textView
     private func updateDisplay() {
         var text = ""
