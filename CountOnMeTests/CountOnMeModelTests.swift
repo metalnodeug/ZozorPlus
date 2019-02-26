@@ -37,6 +37,7 @@ class CountOnMeTests: XCTestCase {
 
         XCTAssert(calculate.calculateTotal() == "6")
     }
+    
 
     func testGivenInitCalculator_WhenUserTouchTwoAndMultiplyOperatorAndEight_ThenResultIsSixteen() {
         XCTAssertFalse(calculate.isExpressionCorrect)
@@ -54,6 +55,7 @@ class CountOnMeTests: XCTestCase {
         try! calculate.addNewOperator("/")
         calculate.addNewNumber("2")
         XCTAssertTrue(calculate.isExpressionCorrect)
+        XCTAssertFalse(calculate.isDivideByZero())
 
         XCTAssert(calculate.calculateTotal() == "4")
     }
@@ -82,5 +84,12 @@ class CountOnMeTests: XCTestCase {
     func testGivenInitCalculator_WhenTestingASwitchBreak_ThenResultIsNil() {
         XCTAssert(calculate.calculateTotal() == "Expression incorrecte")
         try? calculate.addNewOperator("")
+    }
+    
+    func testGivenInitCalculator_WhenTestingADivideByZero_ThenResultIsTrue() {
+        calculate.addNewNumber("2")
+        try! calculate.addNewOperator("/")
+        calculate.addNewNumber("0")
+        XCTAssertTrue(calculate.isDivideByZero())
     }
 }
